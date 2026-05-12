@@ -98,13 +98,25 @@ namespace Condicionales
             Console.WriteLine("----------------------------");
 
             Console.WriteLine("Ingrese la distancia entre tu casa hacia tu universidad:");
-            byte KilometrosDigitados = byte.Parse(Console.ReadLine());
+            if (!byte.TryParse(Console.ReadLine(), out byte KilometrosDigitados))
+            {
+                Console.WriteLine("Entrada no válida.");
+                return;
+            }
 
             Console.WriteLine("Ingresa tus ingresos mensuales:");
-            float IngresosDigitados = float.Parse(Console.ReadLine());
+            if (!float.TryParse(Console.ReadLine(), out float IngresosDigitados))
+            {
+                Console.WriteLine("Entrada no válida.");
+                return;
+            }
 
             Console.WriteLine("Ingrese el numero de su estracto:");
-            byte Estracto = byte.Parse(Console.ReadLine());
+            if (!byte.TryParse(Console.ReadLine(), out byte Estracto))
+            {
+                Console.WriteLine("Entrada no válida.");
+                return;
+            }
 
             Console.Clear();
             if (KilometrosDigitados > Kilometros && IngresosDigitados < Ingresos)
@@ -186,7 +198,11 @@ namespace Condicionales
         static void Punto4()
         {
             Console.WriteLine("Ingrese su edad: ");
-            int Edad = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int Edad))
+            {
+                Console.WriteLine("Edad no válida.");
+                return;
+            }
 
             float SalarioMinimo = 1423500f;
 
@@ -312,9 +328,17 @@ namespace Condicionales
             Console.WriteLine("");
 
             Console.WriteLine("Seleccione alguna de las opciones anteriores.");
-            int Opciones = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int Opciones))
+            {
+                Console.WriteLine("Opción no válida.");
+                return;
+            }
             Console.WriteLine("Seleccione la cantidad del licor");
-            int Cantidad = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int Cantidad))
+            {
+                Console.WriteLine("Cantidad no válida.");
+                return;
+            }
 
             string Licores = "";
             int Precio = 0;
