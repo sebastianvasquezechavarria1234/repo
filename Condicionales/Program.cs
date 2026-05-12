@@ -4,6 +4,10 @@ namespace Condicionales
 {
     internal class Program
     {
+        // Constantes para valores fijos
+        const float SALARIO_MINIMO_2024 = 1300000f;
+        const float SALARIO_MINIMO_SUBSIDIO = 1423500f;
+
         static void Main(string[] args)
         {
             bool salir = false;
@@ -90,7 +94,7 @@ namespace Condicionales
         {
             byte Kilometros = 5;
             float Ingresos = 600000f;
-            float SalarioMinimo = 1300000f;
+            float SalarioMinimo = SALARIO_MINIMO_2024;
 
             float Beca = SalarioMinimo - (SalarioMinimo * 0.44f);
 
@@ -204,7 +208,7 @@ namespace Condicionales
                 return;
             }
 
-            float SalarioMinimo = 1423500f;
+            float SalarioMinimo = SALARIO_MINIMO_SUBSIDIO;
 
             float SubsidioInfantes = SalarioMinimo + (SalarioMinimo * 0.12f);
             float SubsidioNinos = SalarioMinimo + (SalarioMinimo * 0.10f);
