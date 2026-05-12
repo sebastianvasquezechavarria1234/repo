@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Condicionales
 {
@@ -6,256 +6,253 @@ namespace Condicionales
     {
         static void Main(string[] args)
         {
-            // Punto 1
+            // Por ahora llamamos al punto 6 que era el que estaba activo
+            Punto6();
+        }
 
-            //Console.WriteLine("Estas inscrito en el evento ?");
-            //string Evento = Console.ReadLine();
+        static void Punto1()
+        {
+            Console.WriteLine("Estas inscrito en el evento ?");
+            string Evento = Console.ReadLine();
 
+            Console.WriteLine("Cual es tu edad ?");
+            if (byte.TryParse(Console.ReadLine(), out byte Edad))
+            {
+                Console.Clear();
 
-            //Console.WriteLine("Cual es tu edad ?");
-            //byte Edad = byte.Parse(Console.ReadLine());
+                if (Evento == "si")
+                {
+                    if (Edad >= 18 && Edad <= 25)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Puedes ingresar al evento");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"No puedes ingresar tu edad es de {Edad}");
+                        Console.ResetColor();
+                    }
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("No puedes ingresar ¡NO ESTAS INSCRITO!");
+                    Console.ResetColor();
+                }
+            }
+        }
 
-            //Console.Clear();
+        static void Punto2()
+        {
+            byte Kilometros = 5;
+            float Ingresos = 600000f;
+            float SalarioMinimo = 1300000f;
 
-            //if (Evento == "si")
-            //{
-            //    if (Edad >= 18 && Edad <= 25)
-            //    {
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine("Puedes ingresar al evento");
-            //        Console.ResetColor();
-            //    }
-            //    else
-            //    {
-            //        Console.ForegroundColor = ConsoleColor.Red;
-            //        Console.WriteLine($"No puedes ingresar tu edad es de {Edad}");
-            //        Console.ResetColor();
-            //    }
-            //}
-            //else
-            //{
-            //    Console.ForegroundColor = ConsoleColor.Red;
-            //    Console.WriteLine("No puedes ingresar ¡NO ESTAS INSCRITO!");
-            //    Console.ResetColor();
-            //}
+            float Beca = SalarioMinimo - (SalarioMinimo * 0.44f);
 
+            Console.WriteLine($"La beca es de: {Beca:C0}");
+            Console.WriteLine("----------------------------");
 
-            // Punto 2
+            Console.WriteLine("Ingrese la distancia entre tu casa hacia tu universidad:");
+            byte KilometrosDigitados = byte.Parse(Console.ReadLine());
 
-            //byte Kilometros = 5;
-            //float Ingresos = 600000f;
-            //float SalarioMinimo = 1300000f;
+            Console.WriteLine("Ingresa tus ingresos mensuales:");
+            float IngresosDigitados = float.Parse(Console.ReadLine());
 
-            //float Beca = SalarioMinimo - (SalarioMinimo * 0.44f);
+            Console.WriteLine("Ingrese el numero de su estracto:");
+            byte Estracto = byte.Parse(Console.ReadLine());
 
-            //Console.WriteLine($"La beca es de: {Beca:C0}");
-            //Console.WriteLine("----------------------------");
+            Console.Clear();
+            if (KilometrosDigitados > Kilometros && IngresosDigitados < Ingresos)
+            {
+                if (Estracto == 1 || Estracto == 2)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Tu aplicas ala beca de {Beca}");
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Tu no aplicas. Intentalo en otra ocacion estrato");
+                    Console.ResetColor();
+                }
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Tu no aplicas. Intentalo en otra ocacion");
+                Console.ResetColor();
+            }
+        }
 
-            //Console.WriteLine("Ingrese la distancia entre tu casa hacia tu universidad:");
-            //byte KilometrosDigitados = byte.Parse(Console.ReadLine());
+        static void Punto3()
+        {
+            Random GeneradorVelocidad = new Random();
+            int NumeroAleatorio = GeneradorVelocidad.Next(0, 180);
 
-            //Console.WriteLine("Ingresa tus ingresos mensuales:");
-            //float IngresosDigitados = float.Parse(Console.ReadLine());
+            Console.WriteLine("Fecha:" + DateTime.Now);
+            Console.WriteLine($"La velocidad es de: {NumeroAleatorio}");
+            Console.WriteLine("--------------------------");
+            Console.WriteLine("");
 
-            //Console.WriteLine("Ingrese el numero de su estracto:");
-            //byte Estracto = byte.Parse(Console.ReadLine());
+            switch (NumeroAleatorio)
+            {
+                case int n when (n >= 0 && n <= 30):
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Zona Escolares");
+                    Console.WriteLine($"Valocidad transitada: {n}");
+                    Console.WriteLine($"Valocidad Maxima: 30");
+                    Console.ResetColor();
+                    break;
 
-            //Console.Clear();
-            //if (KilometrosDigitados > Kilometros && IngresosDigitados < Ingresos)
-            //{
-            //    if (Estracto == 1 || Estracto == 2)
-            //    {
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine($"Tu aplicas ala beca de {Beca}");
-            //        Console.ResetColor();
-            //    }
-            //    else
-            //    {
-            //        Console.ForegroundColor = ConsoleColor.Red;
-            //        Console.WriteLine("Tu no aplicas. Intentalo en otra ocacion estrato");
-            //        Console.ResetColor();
-            //    }
-            //}
-            //else
-            //{
-            //    Console.ForegroundColor = ConsoleColor.Red;
-            //    Console.WriteLine("Tu no aplicas. Intentalo en otra ocacion");
-            //    Console.ResetColor();
-            //}
+                case int n when (n > 30 && n <= 60):
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Zona Urbana");
+                    Console.WriteLine($"Valocidad transitada: {n}");
+                    Console.WriteLine($"Valocidad Maxima: 60");
+                    Console.ResetColor();
+                    break;
 
+                case int n when (n > 60 && n <= 80):
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Zona Urbana");
+                    Console.WriteLine($"Vias rurales: {n}");
+                    Console.WriteLine($"Valocidad Maxima: 80");
+                    Console.ResetColor();
+                    break;
 
-            // Punto 3
+                case int n when (n > 80 && n <= 100):
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Rutas nacionales");
+                    Console.WriteLine($"Valocidad transitada: {n}");
+                    Console.WriteLine($"Valocidad Maxima: 100");
+                    Console.ResetColor();
+                    break;
 
-            //Random GeneradorVelocidad = new Random();
+                case int n when (n > 100):
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Tu velocidad es de: {n}");
+                    Console.WriteLine("¡Pasate el limite de velocidad que es de 100km/h Por ende tienes una multa de 800.000!");
+                    Console.ResetColor();
+                    break;
+            }
+        }
 
-            //int NumeroAleatorio = GeneradorVelocidad.Next(0, 180);
+        static void Punto4()
+        {
+            Console.WriteLine("Ingrese su edad: ");
+            int Edad = int.Parse(Console.ReadLine());
 
-            //Console.WriteLine("Fecha:" + DateTime.Now);
-            //Console.WriteLine($"La velocidad es de: {NumeroAleatorio}");
-            //Console.WriteLine("--------------------------");
-            //Console.WriteLine("");
+            float SalarioMinimo = 1423500f;
 
+            float SubsidioInfantes = SalarioMinimo + (SalarioMinimo * 0.12f);
+            float SubsidioNinos = SalarioMinimo + (SalarioMinimo * 0.10f);
+            float SubsidioPreAdolecente = SalarioMinimo + (SalarioMinimo * 0.05f);
+            float SubsidioAdultoMayor = SalarioMinimo * 0.05f;
+            float SubsidioAdultoMayorCalculado = SubsidioAdultoMayor + SalarioMinimo;
 
-            //switch (NumeroAleatorio)
-            //{
-            //    case int n when (n >= 0 && n <= 30):
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine("Zona Escolares");
-            //        Console.WriteLine($"Valocidad transitada: {n}");
-            //        Console.WriteLine($"Valocidad Maxima: 30");
-            //        Console.ResetColor();
-            //        break;
+            Console.WriteLine("-------------------");
+            Console.WriteLine("");
 
-            //    case int n when (n > 30 && n <= 60):
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine("Zona Urbana");
-            //        Console.WriteLine($"Valocidad transitada: {n}");
-            //        Console.WriteLine($"Valocidad Maxima: 60");
-            //        Console.ResetColor();
-            //        break;
+            switch (Edad)
+            {
+                case int e when (e > 0 && e <= 5):
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Está en un programa de bebés sanos de 0 a 5 años, tu edad es de: {Edad} años");
+                    Console.WriteLine($"Tu subsidio es del 12% del salrio minimo: {SubsidioInfantes:C0}");
+                    Console.ResetColor();
+                    break;
 
-            //    case int n when (n > 60 && n <= 80):
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine("Zona Urbana");
-            //        Console.WriteLine($"Vias rurales: {n}");
-            //        Console.WriteLine($"Valocidad Maxima: 80");
-            //        Console.ResetColor();
-            //        break;
+                case int e when (e >= 6 && e <= 10):
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Está en un programa de niños canguro. de 6 a 10 años, tu edad es de: {Edad} años");
+                    Console.WriteLine($"Tu subsidio es del 10% del salrio minimo: {SubsidioNinos:C0}");
+                    Console.ResetColor();
+                    break;
 
-            //    case int n when (n > 80 && n <= 100):
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine("Rutas nacionales");
-            //        Console.WriteLine($"Valocidad transitada: {n}");
-            //        Console.WriteLine($"Valocidad Maxima: 100");
-            //        Console.ResetColor();
-            //        break;
+                case int e when (e >= 10 && e <= 15):
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Está en un programa de joven sano. de 10 a 15 años, tu edad es de: {Edad} años");
+                    Console.WriteLine($"Tu subsidio es del 5% del salrio minimo: {SubsidioPreAdolecente:C0}");
+                    Console.ResetColor();
+                    break;
 
-            //    case int n when (n > 100):
-            //        Console.ForegroundColor = ConsoleColor.Red;
-            //        Console.WriteLine($"Tu velocidad es de: {n}");
-            //        Console.WriteLine("¡Pasate el limite de velocidad que es de 100km/h Por ende tienes una multa de 800.000!");
-            //        Console.ResetColor();
-            //        break;
-            //}
+                case int e when (e >= 56):
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"Tu eres un Adulto Anciano, tu edad es de: {Edad} años");
+                    Console.WriteLine($"Tu subsidio es del : {SubsidioAdultoMayorCalculado:C0}");
+                    Console.ResetColor();
+                    break;
 
-            // Punto 4
+                default:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("¡Tu no aplias al subsisdio intentalo enotra ocacion!");
+                    Console.ResetColor();
+                    break;
+            }
+        }
 
-            //Console.WriteLine("Ingrese su edad: ");
-            //int Edad = int.Parse(Console.ReadLine());
+        static void Punto5()
+        {
+            Console.WriteLine("Eliga algun servicio dependiendo del numero:");
+            Console.WriteLine("-------------------------------------------");
 
-            //float SalarioMinimo = 1423500f;
+            Console.WriteLine("1 servicio de caja");
+            Console.WriteLine("2 servicio al cliente ");
+            Console.WriteLine("3 pago de impuestos ");
+            Console.WriteLine("4 crédito hipotecario ");
+            Console.WriteLine("5 operaciones con tarjeta de crédito ");
 
-            //float SubsidioInfantes = SalarioMinimo + (SalarioMinimo * 0.12f);
-            //float SubsidioNinos = SalarioMinimo + (SalarioMinimo * 0.10f);
-            //float SubsidioPreAdolecente = SalarioMinimo + (SalarioMinimo * 0.05f);
-            //float SubsidioAdultoMayor = SalarioMinimo * 0.05f;
-            //float SubsidioAdultoMayorCalculado = SubsidioAdultoMayor + SalarioMinimo;
+            Console.Write("Ingrese una opcion de las anteriores.");
 
+            string Opciones = Console.ReadLine();
 
-            //Console.WriteLine("-------------------");
-            //Console.WriteLine("");
+            Random Generador = new Random();
+            float Ticked = Generador.Next(0, 9000);
+            string Servicio = "";
+            int Sucursal = 1;
 
-            //switch (Edad)
-            //{
-            //    case int e when (e > 0 && e <= 5):
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine($"Está en un programa de bebés sanos de 0 a 5 años, tu edad es de: {Edad} años");
-            //        Console.WriteLine($"Tu subsidio es del 12% del salrio minimo: {SubsidioInfantes:C0}");
-            //        Console.ResetColor();
-            //        break;
+            switch (Opciones)
+            {
+                case "1":
+                    Servicio = "1 servicio de caja";
+                    break;
+                case "2":
+                    Servicio = "2 servicio al cliente";
+                    break;
+                case "3":
+                    Servicio = "3 pago de impuestos";
+                    break;
+                case "4":
+                    Servicio = "4 crédito hipotecario";
+                    break;
+                case "5":
+                    Servicio = "5 operaciones con tarjeta de crédito";
+                    break;
+                default:
+                    Console.WriteLine("-------------------------");
+                    Console.WriteLine("");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("¡Opcion no valida!");
+                    Console.ResetColor();
+                    return;
+            }
 
-            //    case int e when (e >= 6 && e <= 10):
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine($"Está en un programa de niños canguro. de 6 a 10 años, tu edad es de: {Edad} años");
-            //        Console.WriteLine($"Tu subsidio es del 10% del salrio minimo: {SubsidioNinos:C0}");
-            //        Console.ResetColor();
-            //        break;
+            Console.WriteLine("---------------------");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Fecha: " + DateTime.Now);
+            Console.WriteLine($"Ticked: {Ticked}");
+            Console.WriteLine($"Sucursales: {Sucursal}");
+            Console.WriteLine($"Servicios: {Servicio}");
+            Console.ResetColor();
+        }
 
-            //    case int e when (e >= 10 && e <= 15):
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine($"Está en un programa de joven sano. de 10 a 15 años, tu edad es de: {Edad} años");
-            //        Console.WriteLine($"Tu subsidio es del 5% del salrio minimo: {SubsidioPreAdolecente:C0}");
-            //        Console.ResetColor();
-            //        break;
-
-
-            //    case int e when (e >= 56):
-            //        Console.ForegroundColor = ConsoleColor.Green;
-            //        Console.WriteLine($"Tu eres un Adulto Anciano, tu edad es de: {Edad} años");
-            //        Console.WriteLine($"Tu subsidio es del : {SubsidioAdultoMayorCalculado:C0}");
-            //        Console.ResetColor();
-            //        break;
-
-
-            //    default:
-            //        Console.ForegroundColor = ConsoleColor.Red;
-            //        Console.WriteLine("¡Tu no aplias al subsisdio intentalo enotra ocacion!");
-            //        Console.ResetColor();
-            //        break;
-            //}
-
-            // Punto 5
-
-            //Console.WriteLine("Eliga algun servicio dependiendo del numero:");
-            //Console.WriteLine("-------------------------------------------");
-
-            //Console.WriteLine("1 servicio de caja");
-            //Console.WriteLine("2 servicio al cliente ");
-            //Console.WriteLine("3 pago de impuestos ");
-            //Console.WriteLine("4 crédito hipotecario ");
-            //Console.WriteLine("5 operaciones con tarjeta de crédito ");
-
-            //Console.Write("Ingrese una opcion de las anteriores.");
-
-            //string Opciones = Console.ReadLine();
-
-            //Random Generador = new Random();
-
-            //float Ticked = Generador.Next(0, 9000);
-
-            //string Servicio = "";
-
-            //int Sucursal = 1;
-
-            //switch (Opciones)
-            //{
-            //    case "1":
-            //        Servicio = "1 servicio de caja";
-            //        break;
-            //    case "2":
-            //        Servicio = "2 servicio al cliente";
-            //        break;
-            //    case "3":
-            //        Servicio = "3 pago de impuestos";
-            //        break;
-            //    case "4":
-            //        Servicio = "4 crédito hipotecario";
-            //        break;
-            //    case "5":
-            //        Servicio = "5 operaciones con tarjeta de crédito";
-            //        break;
-            //    default:
-            //        Console.WriteLine("-------------------------");
-            //        Console.WriteLine("");
-            //        Console.ForegroundColor = ConsoleColor.Red;
-            //        Console.WriteLine("¡Opcion no valida!");
-            //        Console.ResetColor();
-            //        return;
-
-            //}
-
-            //Console.WriteLine("---------------------");
-            //Console.WriteLine("");
-            //Console.ForegroundColor = ConsoleColor.Green;
-            //Console.WriteLine("Fecha: " + DateTime.Now);
-            //Console.WriteLine($"Ticked: {Ticked}");
-            //Console.WriteLine($"Sucursales: {Sucursal}");
-            //Console.WriteLine($"Servicios: {Servicio}");
-            //Console.ResetColor();
-
-
-            // Punto 6
-
+        static void Punto6()
+        {
             Console.WriteLine("Bienvenido ala licorera");
             Console.WriteLine("Seleccione  una opcion:");
             Console.WriteLine("");
@@ -272,7 +269,6 @@ namespace Condicionales
             Console.WriteLine("-------------------------------");
             Console.WriteLine("");
 
-
             Console.WriteLine("Seleccione alguna de las opciones anteriores.");
             int Opciones = int.Parse(Console.ReadLine());
             Console.WriteLine("Seleccione la cantidad del licor");
@@ -280,8 +276,6 @@ namespace Condicionales
 
             string Licores = "";
             int Precio = 0;
-
-
 
             switch (Opciones)
             {
@@ -326,10 +320,6 @@ namespace Condicionales
             Console.WriteLine($"Total de la compra: {Total}");
             Console.WriteLine("!Gracias por tu visita¡");
             Console.ResetColor();
-
-
-
-
         }
     }
 }
