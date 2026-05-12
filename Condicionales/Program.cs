@@ -111,7 +111,7 @@ namespace Condicionales
                 return;
             }
 
-            Console.WriteLine("Ingrese el numero de su estracto:");
+            Console.WriteLine("Ingrese el numero de su estrato:");
             if (!byte.TryParse(Console.ReadLine(), out byte Estracto))
             {
                 Console.WriteLine("Entrada no válida.");
@@ -124,20 +124,20 @@ namespace Condicionales
                 if (Estracto == 1 || Estracto == 2)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($"Tu aplicas ala beca de {Beca}");
+                    Console.WriteLine($"Tu aplicas a la beca de {Beca}");
                     Console.ResetColor();
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Tu no aplicas. Intentalo en otra ocacion estrato");
+                    Console.WriteLine("Tu no aplicas. Intentalo en otra ocasión estrato");
                     Console.ResetColor();
                 }
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Tu no aplicas. Intentalo en otra ocacion");
+                Console.WriteLine("Tu no aplicas. Intentalo en otra ocasión");
                 Console.ResetColor();
             }
         }
@@ -157,16 +157,16 @@ namespace Condicionales
                 case int n when (n >= 0 && n <= 30):
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Zona Escolares");
-                    Console.WriteLine($"Valocidad transitada: {n}");
-                    Console.WriteLine($"Valocidad Maxima: 30");
+                    Console.WriteLine($"Velocidad transitada: {n}");
+                    Console.WriteLine($"Velocidad Maxima: 30");
                     Console.ResetColor();
                     break;
 
                 case int n when (n > 30 && n <= 60):
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Zona Urbana");
-                    Console.WriteLine($"Valocidad transitada: {n}");
-                    Console.WriteLine($"Valocidad Maxima: 60");
+                    Console.WriteLine($"Velocidad transitada: {n}");
+                    Console.WriteLine($"Velocidad Maxima: 60");
                     Console.ResetColor();
                     break;
 
@@ -174,22 +174,22 @@ namespace Condicionales
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Zona Urbana");
                     Console.WriteLine($"Vias rurales: {n}");
-                    Console.WriteLine($"Valocidad Maxima: 80");
+                    Console.WriteLine($"Velocidad Maxima: 80");
                     Console.ResetColor();
                     break;
 
                 case int n when (n > 80 && n <= 100):
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Rutas nacionales");
-                    Console.WriteLine($"Valocidad transitada: {n}");
-                    Console.WriteLine($"Valocidad Maxima: 100");
+                    Console.WriteLine($"Velocidad transitada: {n}");
+                    Console.WriteLine($"Velocidad Maxima: 100");
                     Console.ResetColor();
                     break;
 
                 case int n when (n > 100):
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Tu velocidad es de: {n}");
-                    Console.WriteLine("¡Pasate el limite de velocidad que es de 100km/h Por ende tienes una multa de 800.000!");
+                    Console.WriteLine("¡Te pasaste el límite de velocidad! El máximo es de 100km/h. Tienes una multa de $800.000.");
                     Console.ResetColor();
                     break;
             }
@@ -247,7 +247,7 @@ namespace Condicionales
 
                 default:
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("¡Tu no aplias al subsisdio intentalo enotra ocacion!");
+                    Console.WriteLine("¡Tu no aplias al subsidio intentalo enotra ocasión!");
                     Console.ResetColor();
                     break;
             }
@@ -269,7 +269,7 @@ namespace Condicionales
             string Opciones = Console.ReadLine();
 
             Random Generador = new Random();
-            float Ticked = Generador.Next(0, 9000);
+            float Ticket = Generador.Next(0, 9000);
             string Servicio = "";
             int Sucursal = 1;
 
@@ -303,7 +303,7 @@ namespace Condicionales
             Console.WriteLine("");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Fecha: " + DateTime.Now);
-            Console.WriteLine($"Ticked: {Ticked}");
+            Console.WriteLine($"Ticket: {Ticket}");
             Console.WriteLine($"Sucursales: {Sucursal}");
             Console.WriteLine($"Servicios: {Servicio}");
             Console.ResetColor();
@@ -311,7 +311,7 @@ namespace Condicionales
 
         static void Punto6()
         {
-            Console.WriteLine("Bienvenido ala licorera");
+            Console.WriteLine("Bienvenido a la licorera");
             Console.WriteLine("Seleccione  una opcion:");
             Console.WriteLine("");
             Console.WriteLine("-------------------------------");
@@ -370,7 +370,7 @@ namespace Condicionales
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("----------------------------------");
                     Console.WriteLine("");
-                    Console.WriteLine($"¡Lo setimos este numero de producto: {Opciones} no esta disponible!");
+                    Console.WriteLine($"¡Lo sentimos este numero de producto: {Opciones} no esta disponible!");
                     Console.ResetColor();
                     return;
             }
