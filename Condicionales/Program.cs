@@ -6,8 +6,50 @@ namespace Condicionales
     {
         static void Main(string[] args)
         {
-            // Por ahora llamamos al punto 6 que era el que estaba activo
-            Punto6();
+            bool salir = false;
+            while (!salir)
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("========================================");
+                Console.WriteLine("    MENÚ DE EJERCICIOS - CONDICIONALES  ");
+                Console.WriteLine("========================================");
+                Console.ResetColor();
+                Console.WriteLine("1. Punto 1: Ingreso a Evento");
+                Console.WriteLine("2. Punto 2: Beca Universitaria");
+                Console.WriteLine("3. Punto 3: Control de Velocidad");
+                Console.WriteLine("4. Punto 4: Programa de Subsidios");
+                Console.WriteLine("5. Punto 5: Servicios Bancarios");
+                Console.WriteLine("6. Punto 6: Licorera");
+                Console.WriteLine("0. Salir");
+                Console.WriteLine("----------------------------------------");
+                Console.Write("Seleccione una opción: ");
+
+                string opcion = Console.ReadLine();
+
+                Console.Clear();
+                switch (opcion)
+                {
+                    case "1": Punto1(); break;
+                    case "2": Punto2(); break;
+                    case "3": Punto3(); break;
+                    case "4": Punto4(); break;
+                    case "5": Punto5(); break;
+                    case "6": Punto6(); break;
+                    case "0": salir = true; break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Opción no válida.");
+                        Console.ResetColor();
+                        break;
+                }
+
+                if (!salir)
+                {
+                    Console.WriteLine("\nPresione cualquier tecla para volver al menú...");
+                    Console.ReadKey();
+                }
+            }
         }
 
         static void Punto1()
